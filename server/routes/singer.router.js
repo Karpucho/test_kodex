@@ -36,31 +36,50 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// router.post('/', async (req, res) => {
-//   try {
+router.post('/', async (req, res) => {
+  try {
+    const { name } = req.body;
 
-//   } catch (error) {
-//     console.log(error);
-//     res.sendStatus(500);
-//   }
-// });
+    await Singer.create({
+      name,
+    });
 
-// router.put('/:id', async (req, res) => {
-//   try {
+    return res.sendStatus(201);
 
-//   } catch (error) {
-//     console.log(error);
-//     res.sendStatus(500);
-//   }
-// });
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(500);
+  }
+});
 
-// router.delete('/:id', async (req, res) => {
-//   try {
+router.put('/:id', async (req, res) => {
+  try {
+    const { name } = req.body;
+    const { id } = req.params;
 
-//   } catch (error) {
-//     console.log(error);
-//     res.sendStatus(500);
-//   }
-// });
+    await Singer.update({ name }, {
+      where: { id },
+    });
+
+    return res.sendStatus(201);
+
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(500);
+  }
+});
+
+router.delete('/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    await Singer.destroy({
+      where: { id },
+    });
+    res.sendStatus(200);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(500);
+  }
+});
 
 module.exports = router;
