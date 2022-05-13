@@ -1,17 +1,17 @@
 const Router = require('express');
+const { Op } = require('sequelize');
 const { Singer } = require('../db/models');
 const isMoneta = require('../utils/isMoneta');
-const { Op } = require('sequelize');
-
 
 const router = new Router();
 
 router.get('/', async (req, res) => {
   try {
-    const { query } = req;
-    console.log(query.name, 'КВЕЙРИ');
-    const obj = {}
-    obj.name = { [Op.substring]: query.name }
+    const { name } = req.query;
+
+    const obj = {};
+    obj.name = { [Op.substring]: name };
+
     const singers = await Singer.findAll({
       where: obj,
       raw: true,

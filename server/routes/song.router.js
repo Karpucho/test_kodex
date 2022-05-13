@@ -1,16 +1,26 @@
 const Router = require('express');
+const { Op } = require('sequelize');
 const { Singer, Song } = require('../db/models');
 
 const router = new Router();
 
 router.get('/', async (req, res) => {
   try {
+
+    const { name } = req.query;
+
+    const obj = {};
+    obj.name = { [Op.substring]: name };
+
     const songs = await Song.findAll({
-      // where: {
-      //   id: 1,
-      // },
+      // where: obj,
       raw: true,
       attributes: ['id', 'name'],
+      // include: {
+      //   model: Singer,
+      //   where: obj, // разобраться с поиском по певцу
+      //   attributes: ['id', 'name'],
+      // },
     });
 
     return res.status(200).json(songs);
@@ -76,6 +86,7 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   try {
     const { id } = req.params;
+    
     await Song.destroy({
       where: { id },
     });
