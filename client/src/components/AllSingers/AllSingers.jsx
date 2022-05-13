@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useQuery } from 'react-query';
 import './allsingers.css'
 import { useLocation } from 'react-router-dom';
+import SingerCard from '../SingerCard/SingerCard';
 
 
 function AllSingers(props) {
@@ -26,10 +27,10 @@ function AllSingers(props) {
     )}
 
   const singersList = allSingersQuery.data.data
-  
+
   return (
     <div>
-      {singersList.map(singer => <div key={singer.id}>{singer.name}</div>)}
+      {singersList.map(singer => <SingerCard key={singer.id} singer={singer} />)}
     </div>
   );
 }

@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useQuery } from 'react-query';
 import { useLocation } from 'react-router-dom';
 import './allsongs.css'
+import SongCard from '../SongCard/SongCard';
 
 function AllSongs(props) {
 
@@ -25,10 +26,10 @@ function AllSongs(props) {
     )}
 
   const songsList = allSongsQuery.data.data
-  
+
   return (
     <div>
-      {songsList.map(song => <div key={song.id}>{song.name}</div>)}
+      {songsList.map(song => <SongCard key={song.id} song={song} />)}
     </div>
   );
 }

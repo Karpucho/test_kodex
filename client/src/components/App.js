@@ -3,7 +3,6 @@ import AllSingers from './AllSingers/AllSingers';
 import AllSongs from './AllSongs/AllSongs';
 import NavBar from './NavBar/NavBar';
 
-
 function App() {
   return (
    <BrowserRouter>
