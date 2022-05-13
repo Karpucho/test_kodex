@@ -19,7 +19,7 @@ app.use(cors({
 }));
 
 app.use('/api/singers', singerRouter);
-app.use('api/songs', songRouter);
+app.use('/api/songs', songRouter);
 
 app.listen(PORT, async () => {
   console.log('Сервер запущен на порту:', PORT);

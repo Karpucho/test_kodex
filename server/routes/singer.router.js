@@ -1,14 +1,19 @@
 const Router = require('express');
 const { Singer } = require('../db/models');
+const isMoneta = require('../utils/isMoneta');
+const { Op } = require('sequelize');
+
 
 const router = new Router();
 
 router.get('/', async (req, res) => {
   try {
+    const { query } = req;
+    console.log(query.name, 'КВЕЙРИ');
+    const obj = {}
+    obj.name = { [Op.substring]: query.name }
     const singers = await Singer.findAll({
-      // where: {
-      //   id: 1,
-      // },
+      where: obj,
       raw: true,
       attributes: ['id', 'name'],
     });
@@ -40,11 +45,6 @@ router.post('/', async (req, res) => {
   try {
     const { name } = req.body;
 
-    function isMoneta(name) {
-      const withoutSpacesName = name.replace(/\s/g, '');
-      return /^.*[мМm]+[оО]+[нН|nh]+[еЕe]+[тТt]+[оО]+([чЧ]|ch)+[кКk]+[аАa]+.*$/i.test(withoutSpacesName);
-    }
-
     if (isMoneta(name)) {
       return res.sendStatus(451);
     }
@@ -64,11 +64,6 @@ router.put('/:id', async (req, res) => {
   try {
     const { name } = req.body;
     const { id } = req.params;
-
-    function isMoneta(name) {
-      const withoutSpacesName = name.replace(/\s/g, '');
-      return /^.*[мМm]+[оО]+[нН|nh]+[еЕe]+[тТt]+[оО]+([чЧ]|ch)+[кКk]+[аАa]+.*$/i.test(withoutSpacesName);
-    }
 
     if (isMoneta(name)) {
       return res.sendStatus(451);
