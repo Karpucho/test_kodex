@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import { useQuery } from 'react-query';
-
 import './allsingers.css'
 import { useLocation } from 'react-router-dom';
 
@@ -25,7 +24,9 @@ function AllSingers(props) {
     return (
       <div>Ошибка</div>
     )}
+
   const singersList = allSingersQuery.data.data
+  
   return (
     <div>
       {singersList.map(singer => <div key={singer.id}>{singer.name}</div>)}
