@@ -1,6 +1,8 @@
 const Router = require('express');
 const { Op } = require('sequelize');
 const { Singer, Song } = require('../db/models');
+const {singerQuery, songQuery} = require('../utils/configureQuery')
+
 
 const router = new Router();
 
@@ -86,7 +88,7 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    
+
     await Song.destroy({
       where: { id },
     });

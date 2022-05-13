@@ -10,10 +10,11 @@ const songRouter = require('./routes/song.router');
 
 const PORT = process.env.PORT || 5000;
 const app = express();
-const accessLogStream = fs.createWriteStream(`${__dirname}/access.log`, { flags: 'a' });
 
+const accessLogStream = fs.createWriteStream(`${__dirname}/access.log`, { flags: 'a' });
 morgan.token('error', (req) => req.error);
-app.use(morgan(':date[clf] :method :url :req[x-forwarded-for] :error', { stream: accessLogStream }));
+
+app.use(morgan('combined', { stream: accessLogStream }));
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
