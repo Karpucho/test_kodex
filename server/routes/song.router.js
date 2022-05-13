@@ -1,28 +1,25 @@
 const Router = require('express');
 const { Op } = require('sequelize');
 const { Singer, Song } = require('../db/models');
-const {singerQuery, songQuery} = require('../utils/configureQuery')
-
+const { singerQuery, songQuery } = require('../utils/configureQuery');
 
 const router = new Router();
 
 router.get('/', async (req, res) => {
   try {
-
-    const { name } = req.query;
-
-    const obj = {};
-    obj.name = { [Op.substring]: name };
+    const { query } = req;
+    const singerObject = singerQuery(query);
+    const songObject = songQuery(query);
 
     const songs = await Song.findAll({
-      // where: obj,
+      where: songObject,
       raw: true,
       attributes: ['id', 'name'],
-      // include: {
-      //   model: Singer,
-      //   where: obj, // разобраться с поиском по певцу
-      //   attributes: ['id', 'name'],
-      // },
+      include: {
+        model: Singer,
+        where: singerObject, // разобраться с поиском по певцу
+        attributes: ['id', 'name'],
+      },
     });
 
     return res.status(200).json(songs);
