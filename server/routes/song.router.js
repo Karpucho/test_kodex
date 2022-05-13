@@ -1,5 +1,5 @@
 const Router = require('express');
-const songController = require('../controllers/songController')
+const songController = require('../controllers/songController');
 
 const router = new Router();
 

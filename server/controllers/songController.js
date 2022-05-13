@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable class-methods-use-this */
 /* eslint-disable consistent-return */
 const { Singer, Song } = require('../db/models');
