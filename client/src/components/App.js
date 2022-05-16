@@ -2,6 +2,8 @@ import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import AllSingers from './AllSingers/AllSingers';
 import AllSongs from './AllSongs/AllSongs';
 import NavBar from './NavBar/NavBar';
+import NewSinger from './NewSinger/NewSinger';
+import NewSong from './NewSong/NewSong';
 
 function App() {
   return (
@@ -10,7 +12,9 @@ function App() {
       <NavBar />
         <Routes>
           <Route path="/singers" element={<AllSingers />} />
+          <Route path="/singers/new" element={<NewSinger />} />
           <Route path="/songs" element={<AllSongs />} />
+          <Route path="/songs/new" element={<NewSong />} />
         </Routes>
     </div>
    </BrowserRouter>
