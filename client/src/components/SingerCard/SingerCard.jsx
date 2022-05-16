@@ -15,9 +15,11 @@ function SingerCard({singer}) {
    }})
 
   return (
-    <div>
-      <div className="">{singer.name}</div>
-      <button onClick={() => deleteSinger.mutate()} className="">Удалить певца</button>
+    <div className="card">
+      <div className="card-body">
+        <h5 className="card-title">{singer.name}</h5>
+        <button onClick={() => deleteSinger.mutate()} className="btn btn-primary">Удалить певца</button>
+      </div>
     </div>
   );
 }

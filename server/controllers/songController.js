@@ -56,6 +56,10 @@ class SongController {
     try {
       const { name, singer_id } = req.body;
 
+      if (!name) {
+        return res.sendStatus(400);
+      }
+
       await Song.create({
         name,
         singer_id,

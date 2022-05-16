@@ -28,7 +28,7 @@ function AllSongs(props) {
   const songsList = allSongsQuery.data.data
 
   return (
-    <div>
+    <div className = 'allSongs'>
       {songsList.map(song => <SongCard key={song.id} song={song} />)}
     </div>
   );

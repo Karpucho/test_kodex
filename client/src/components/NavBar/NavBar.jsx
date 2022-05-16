@@ -4,12 +4,18 @@ import './navbar.css'
 
 function NavBar(props) {
   return (
-    <div className="navbar">
-      <Link to='/singers'><button className="navbar_btn">Певцы</button></Link>
-      <Link to='/songs'><button className="navbar_btn">Песни</button></Link>
-      <Link to='/singers/new'><button className="navbar_btn">Добавить певца</button></Link>
-      <Link to='/songs/new'><button className="navbar_btn">Добавить песню</button></Link>
-    </div>
+    <nav className="navbar navbar-expand-lg">
+      <div className="container-fluid">
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav">
+              <Link to='/singers' className="nav-link">Певцы</Link>
+              <Link to='/songs' className="nav-link">Песни</Link>
+              <Link to='/singers/new' className="nav-link">Добавить певца</Link>
+              <Link to='/songs/new' className="nav-link">Добавить песню</Link>
+          </ul>
+        </div>
+      </div>
+    </nav>
   );
 }
 

@@ -3,7 +3,7 @@ import axios from 'axios';
 import './newsinger.css'
 import { useMutation } from 'react-query';
 
-function NewSinger(props) {
+function NewSinger() {
 
   const newSingerRef = useRef()
   const moneta = useRef()
@@ -17,20 +17,24 @@ function NewSinger(props) {
    },
     onError: (error) => {
       if (error.response.status === 451) {
-        moneta.status = 'ее нельзя'
+        moneta.status = 'Исполнитель под запретом'
       }
-      // добавить ошибку
+      if (error.response.status === 400) {
+        moneta.status = 'Пустое поле'
+      }
     }})
 
   return (
-    <form>
-      <label htmlFor="name">Новый певец</label>
-      <input ref={newSingerRef} type="text" name="name" id="name" className="" />
-      <div className="">{moneta.status}</div>
-      <button onClick={(event) => {
-        event.preventDefault();
-        addSinger.mutate()
-      }}>Добавить певца</button>
+    <form className = 'newSinger'>
+      <div className="mb-3">
+         <label className="form-label" htmlFor="name">Новый певец: </label>
+         <br/> <input className="form-control" ref={newSingerRef} type="text" name="name" id="name" />
+        <div id="emailHelp" className="form-text">{moneta.status}</div>
+      </div>
+         <button onClick={(event) => {
+         event.preventDefault();
+         addSinger.mutate()
+       }} className="btn btn-primary">Добавить певца</button>
     </form>
   );
 }

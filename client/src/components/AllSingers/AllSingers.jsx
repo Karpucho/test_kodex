@@ -29,7 +29,7 @@ function AllSingers(props) {
   const singersList = allSingersQuery.data.data
 
   return (
-    <div>
+    <div className = 'allSingers'>
       {singersList.map(singer => <SingerCard key={singer.id} singer={singer} />)}
     </div>
   );

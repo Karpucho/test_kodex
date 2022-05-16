@@ -1,1 +1,0 @@
-key={singer.id} singer={singer}
