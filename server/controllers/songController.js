@@ -93,6 +93,7 @@ class SongController {
       await Song.destroy({
         where: { id },
       });
+
       res.sendStatus(200);
     } catch (error) {
       console.log(error);
