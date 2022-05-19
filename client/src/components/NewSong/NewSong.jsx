@@ -41,30 +41,33 @@ function NewSong() {
   const singersList = allSingersQuery.data.data
 
   return (
-    <form className = 'newSinger'>
-      <div className="mb-3">
-        <label className="form-label" htmlFor="singerName">
-          <span>Имя певца: </span>
-          <select className="form-select" ref={singerRef} name="singerName" id="singerName">
-            {singersList.map(singer => <option value={singer.id} key={singer.id}>{singer.name}</option>)}
-          </select>
-        </label>
-      </div>
+    <div className="new_form">
+    
+      <form className = 'newSinger'>
+        <div className="mb-3">
+          <label className="form-label" htmlFor="singerName">
+            <span>Имя певца: </span>
+            <select className="form-select" ref={singerRef} name="singerName" id="singerName">
+              {singersList.map(singer => <option value={singer.id} key={singer.id}>{singer.name}</option>)}
+            </select>
+          </label>
+        </div>
 
-      <div className="mb-3">
-        <label className="form-label" htmlFor="songName">
-          <span>Название песни: </span> <br/>
-          <input className="form-control" ref={newSongRef} type="text" name="songName" id="songName" />
-        </label>
-      </div>
+        <div className="mb-3">
+          <label className="form-label" htmlFor="songName">
+            <span>Название песни: </span> <br/>
+            <input className="form-control" ref={newSongRef} type="text" name="songName" id="songName" />
+          </label>
+        </div>
 
-      <div className="">{moneta.status}</div>
+        <div className="">{moneta.status}</div>
 
-      <button onClick={(event) => {
-        event.preventDefault();
-        addSong.mutate()
-      }} className="btn btn-primary">Добавить песню</button>
-    </form>
+        <button onClick={(event) => {
+          event.preventDefault();
+          addSong.mutate()
+        }} className="btn btn-primary">Добавить песню</button>
+      </form>
+    </div>
   );
 }
 

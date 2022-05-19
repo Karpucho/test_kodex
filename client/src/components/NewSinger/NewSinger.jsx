@@ -17,7 +17,7 @@ function NewSinger() {
    },
     onError: (error) => {
       if (error.response.status === 444) {
-        moneta.status = 'Исполнитель под запретом'
+        moneta.status = 'Исполнитель вне закона'
       }
       if (error.response.status === 400) {
         moneta.status = 'Пустое поле'
@@ -25,17 +25,19 @@ function NewSinger() {
     }})
 
   return (
-    <form className = 'newSinger'>
-      <div className="mb-3">
-         <label className="form-label" htmlFor="name">Новый певец: </label>
-         <br/> <input className="form-control" ref={newSingerRef} type="text" name="name" id="name" />
-        <div id="emailHelp" className="form-text">{moneta.status}</div>
-      </div>
-         <button onClick={(event) => {
-         event.preventDefault();
-         addSinger.mutate()
-       }} className="btn btn-primary">Добавить певца</button>
-    </form>
+    <div className="new_form">
+      <form className='newSinger'>
+          <div className="mb-3">
+            <label className="form-label" htmlFor="name">Новый певец: </label>
+            <br/> <input className="form-control" ref={newSingerRef} type="text" name="name" id="name" />
+            <div id="emailHelp" className="form-text">{moneta.status}</div>
+          </div>
+            <button onClick={(event) => {
+            event.preventDefault();
+            addSinger.mutate()
+          }} className="btn btn-primary">Добавить певца</button>
+      </form>
+    </div>
   );
 }
 

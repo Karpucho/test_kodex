@@ -4,14 +4,14 @@ import { useMutation, useQuery, useQueryClient } from 'react-query'
 import axios from 'axios'
 import './editsinger.css'
 
-function EditSinger(props) {
+function EditSinger() {
 
   const { id } = useParams()
+  const queryClient = useQueryClient()
   const singerName = useRef()
   const moneta = useRef()
   const singersQuery = useQuery(`singers-${id}`, () => axios(`http://localhost:5000/api/singers/${id}`))
-  const queryClient = useQueryClient()
-
+  
   const saveSinger = useMutation(() =>
     axios.put(`http://localhost:5000/api/singers/${id}`, {
       name: singerName.current.value
@@ -22,7 +22,7 @@ function EditSinger(props) {
     },
     onError: (error) => {
       if (error.response.status === 444) {
-        moneta.status = 'Исполнитель под запретом'
+        moneta.status = 'Исполнитель вне закона'
       }
       if (error.response.status === 400) {
         moneta.status = 'Пустое поле'
@@ -44,17 +44,19 @@ function EditSinger(props) {
 
   return (
     <form className="editSinger">
-    <div className="mb-3">
-      <label htmlFor="singerName" className="form-label">Новое имя певца:</label>
-      <input type="text" ref={singerName}
-        name="singerName" id="singerName"
-        className="form-control" defaultValue={singerInfo.name}
-      />
+
+      <div className="mb-3">
+        <label htmlFor="singerName" className="form-label">Новое имя певца:</label>
+        <input type="text" ref={singerName}
+          name="singerName" id="singerName"
+          className="form-control" defaultValue={singerInfo.name} />
       </div>
-      <button className="btn btn-primary" onClick={(event) => {
+
+      <button onClick={(event) => {
         event.preventDefault();
         saveSinger.mutate()
-      }}>Изменить</button>
+        }} className="btn btn-primary">Изменить</button>
+
       <div className="form-text">{moneta.status}</div>
     </form>
   );

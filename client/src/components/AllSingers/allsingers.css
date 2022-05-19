@@ -1,5 +1,6 @@
 .allSingers {
  display: flex;
  margin: 10px;
- flex-wrap: wrap; 
+ flex-wrap: wrap;
+ justify-content: center;
 }
