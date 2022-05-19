@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './navbar.css'
 
-function NavBar(props) {
+function NavBar() {
   return (
     <nav className="navbar navbar-expand-lg">
       <div className="container-fluid">

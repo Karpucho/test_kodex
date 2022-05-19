@@ -47,7 +47,7 @@ class SingerController {
       const { name } = req.body;
 
       if (isMoneta(name)) {
-        return res.sendStatus(451);
+        return res.sendStatus(444);
       }
 
       if (!name) {
@@ -72,7 +72,7 @@ class SingerController {
       const { id } = req.params;
 
       if (isMoneta(name)) {
-        return res.sendStatus(451);
+        return res.sendStatus(444);
       }
 
       await Singer.update({ name }, {

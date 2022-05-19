@@ -1,7 +1,5 @@
 const express = require('express');
-// const path = require('path');
 const fs = require('fs');
-// const cors = require('cors');
 const morgan = require('morgan');
 const corsMiddleware = require('./middleware/cors.middleware');
 const { sequelize } = require('./db/models');
@@ -19,7 +17,6 @@ app.use(corsMiddleware);
 app.use(morgan('combined', { stream: accessLogStream }));
 app.use(morgan('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
 app.use('/api/singers', singerRouter);
 app.use('/api/songs', songRouter);

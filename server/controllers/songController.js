@@ -17,7 +17,7 @@ class SongController {
         attributes: ['id', 'name'],
         include: {
           model: Singer,
-          where: singerObject, // разобраться с поиском по певцу
+          where: singerObject,
           attributes: ['id', 'name'],
         },
       });

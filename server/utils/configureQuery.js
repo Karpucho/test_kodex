@@ -5,7 +5,7 @@ function singerQuery(query) {
   const singerObject = {};
 
   if (singerSlice) {
-    singerObject.name = { [Op.substring]: singerSlice };
+    singerObject.name = { [Op.iLike]: singerSlice };
   }
 
   return singerObject;
@@ -16,7 +16,7 @@ function songQuery(query) {
   const songObject = {};
 
   if (songSlice) {
-    songObject.name = { [Op.substring]: songSlice };
+    songObject.name = { [Op.iLike]: songSlice };
   }
 
   return songObject;

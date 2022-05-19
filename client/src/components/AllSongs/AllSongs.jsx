@@ -5,7 +5,7 @@ import { useLocation } from 'react-router-dom';
 import './allsongs.css'
 import SongCard from '../SongCard/SongCard';
 
-function AllSongs(props) {
+function AllSongs() {
 
   const { search: query } = useLocation()
   const allSongsQuery = useQuery(`allSongs${query}`, () => axios({

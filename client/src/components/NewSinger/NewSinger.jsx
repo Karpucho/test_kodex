@@ -16,7 +16,7 @@ function NewSinger() {
     newSingerRef.current.value =''
    },
     onError: (error) => {
-      if (error.response.status === 451) {
+      if (error.response.status === 444) {
         moneta.status = 'Исполнитель под запретом'
       }
       if (error.response.status === 400) {
