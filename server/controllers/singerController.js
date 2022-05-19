@@ -75,6 +75,10 @@ class SingerController {
         return res.sendStatus(444);
       }
 
+      if (!name) {
+        return res.sendStatus(400);
+      }
+
       await Singer.update({ name }, {
         where: { id },
       });

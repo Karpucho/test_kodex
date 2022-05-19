@@ -1,12 +1,9 @@
 .navbar {
   margin: 10px;
   border-radius: 10px;
-  background-color: rgba(244, 244, 237, 0.863);
+  background-color: rgba(196, 196, 190, 0.863);
   font-size: 20px;
+  justify-content: space-around;
+  padding: 20px;
 }
 
-.nav-link {
-  border: solid 2px rgb(35, 125, 235);
-  margin-right: 15px;
-  border-radius: 10px;
-}

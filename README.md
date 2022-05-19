@@ -106,3 +106,8 @@ songsSlice - поиск по части названия песни
 - singerSlice : number - id певца
 
 > DELETE /api/songs/:id - удаление песни по id.
+
+### Стек приложения
+
+Frontend: React, React-Query
+Backend: Node.JS, Express, PostgreSQL, Sequelize ORM.

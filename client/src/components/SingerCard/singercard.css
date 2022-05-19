@@ -4,3 +4,13 @@
   border-radius: 10px;
   background-color: rgba(244, 244, 237, 0.863);
 }
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  /* margin-bottom: 10px; */
+}
+
+.btn {
+  margin-bottom: 5px;
+}
