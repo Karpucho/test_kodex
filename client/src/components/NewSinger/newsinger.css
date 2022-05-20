@@ -1,12 +1,10 @@
 .newSinger {
   margin: 15px;
-  background-color: rgba(244, 244, 237, 0.863);
+  background: linear-gradient(45deg, rgb(218, 221, 221) 36%, rgb(165, 169, 169));
+  border: 1px solid black;
   padding: 10px;
   border-radius: 10px;
   width: 30vw;
-  /* height: 30vh; */
-  /* display: flex; */
-
 }
 
 .new_form {

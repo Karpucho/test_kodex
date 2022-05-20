@@ -2,13 +2,12 @@
   text-align: center;
   margin: 10px;
   border-radius: 10px;
-  background-color: rgba(244, 244, 237, 0.863);
+  background: linear-gradient(45deg, rgb(218, 221, 221) 36%, rgb(165, 169, 169));
 }
 
 .card-body {
   display: flex;
   flex-direction: column;
-  /* margin-bottom: 10px; */
 }
 
 .btn {

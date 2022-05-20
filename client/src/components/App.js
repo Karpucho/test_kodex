@@ -5,11 +5,12 @@ import EditSinger from './EditSinger/EditSinger';
 import NavBar from './NavBar/NavBar';
 import NewSinger from './NewSinger/NewSinger';
 import NewSong from './NewSong/NewSong';
+import './app.css'
 
 function App() {
   return (
    <BrowserRouter>
-    <div className="App">
+    <div className="mainApp">
       <NavBar />
         <Routes>
           <Route path="/singers" element={<AllSingers />} />

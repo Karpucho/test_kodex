@@ -2,7 +2,6 @@ import React, { useRef } from 'react';
 import { useParams } from 'react-router-dom'
 import { useMutation, useQuery, useQueryClient } from 'react-query'
 import axios from 'axios'
-import './editsinger.css'
 
 function EditSinger() {
 
@@ -43,8 +42,8 @@ function EditSinger() {
   const singerInfo = singersQuery.data.data
 
   return (
-    <form className="editSinger">
-
+   <div className="new_form">
+    <form className="newSinger">
       <div className="mb-3">
         <label htmlFor="singerName" className="form-label">Новое имя певца:</label>
         <input type="text" ref={singerName}
@@ -59,6 +58,7 @@ function EditSinger() {
 
       <div className="form-text">{moneta.status}</div>
     </form>
+   </div>
   );
 }
 

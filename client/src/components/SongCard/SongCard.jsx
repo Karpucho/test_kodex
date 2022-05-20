@@ -1,7 +1,6 @@
 import React from 'react';
 import { useMutation, useQueryClient } from 'react-query';
 import axios from 'axios';
-import './songcard.css'
 
 function SongCard({song}) {
 

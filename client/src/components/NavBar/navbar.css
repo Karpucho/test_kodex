@@ -1,7 +1,7 @@
 .navbar {
   margin: 10px;
   border-radius: 10px;
-  background-color: rgba(196, 196, 190, 0.863);
+  background: linear-gradient(45deg, rgb(218, 221, 221) 36%, rgb(165, 169, 169));
   font-size: 20px;
   justify-content: space-around;
   padding: 20px;
