@@ -112,4 +112,8 @@ songsSlice - поиск по части названия песни
 Frontend: React, React-Query<br>
 Backend: Node.JS, Express, PostgreSQL, Sequelize ORM.
 
+### Скриншоты
 [![2022-05-20-17-11.png](https://i.postimg.cc/pdMqGJMc/2022-05-20-17-11.png)](https://postimg.cc/XrxfXFJ9)
+[![2022-05-20-17-14.png](https://i.postimg.cc/bYn0M2LK/2022-05-20-17-14.png)](https://postimg.cc/5jxFQyh3)
+[![2022-05-20-17-15.png](https://i.postimg.cc/ZKZNMsWd/2022-05-20-17-15.png)](https://postimg.cc/8sKsFHBp)
+[![2022-05-20-17-15-1.png](https://i.postimg.cc/s2tQ9TF1/2022-05-20-17-15-1.png)](https://postimg.cc/XZkYncY0)
