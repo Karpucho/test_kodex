@@ -109,5 +109,7 @@ songsSlice - поиск по части названия песни
 
 ### Стек приложения
 
-Frontend: React, React-Query
+Frontend: React, React-Query<br>
 Backend: Node.JS, Express, PostgreSQL, Sequelize ORM.
+
+[![2022-05-20-17-11.png](https://i.postimg.cc/pdMqGJMc/2022-05-20-17-11.png)](https://postimg.cc/XrxfXFJ9)

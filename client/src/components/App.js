@@ -6,6 +6,7 @@ import NavBar from './NavBar/NavBar';
 import NewSinger from './NewSinger/NewSinger';
 import NewSong from './NewSong/NewSong';
 import './app.css'
+import EditSong from './EditSong/EditSong';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
 
           <Route path="/songs" element={<AllSongs />} />
           <Route path="/songs/new" element={<NewSong />} />
+          <Route path="/songs/edit/:id" element={<EditSong />} />
         </Routes>
     </div>
    </BrowserRouter>

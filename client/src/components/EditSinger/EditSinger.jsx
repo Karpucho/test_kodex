@@ -54,7 +54,7 @@ function EditSinger() {
       <button onClick={(event) => {
         event.preventDefault();
         saveSinger.mutate()
-        }} className="btn btn-primary">Изменить</button>
+        }} className="btn btn-primary">Изменить певца</button>
 
       <div className="form-text">{moneta.status}</div>
     </form>
